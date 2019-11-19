@@ -19,6 +19,11 @@ jobs:
       run: mkdir mapcache/build/release
     - name: Copy Release Artifacts
       run: |
+        ls mapcache
+        ls mapcache/build
+        ls mapcache/build/outputs
+        ls mapcache/build/outputs/apk
+        ls mapcache/build/outputs/apk/release
         cp mapcache/build/outputs/apk/release/mapcache-release.apk "mapcache/build/release/mapcache-$(./gradlew mapcache:androidAppVersion | grep versionName | sed 's/^.*@//').apk"
     - name: Upload Artifacts
       uses: actions/upload-artifact@v1
