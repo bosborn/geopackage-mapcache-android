@@ -14,9 +14,7 @@ jobs:
       with:
         java-version: 1.8
     - name: Build with Gradle
-      run: ./gradlew assembleRelease 
-      env:
-        RELEASE_MAPS_MAPCACHE_API_KEY: ${{ secrets.RELEASE_MAPS_MAPCACHE_API_KEY }}
+      run: ./gradlew assembleRelease -PRELEASE_MAPS_MAPCACHE_API_KEY=${{ secrets.RELEASE_MAPS_MAPCACHE_API_KEY }}
     - uses: r0adkll/sign-android-release@v1
       with:
         releaseDirectory: mapcache/build/outputs/apk/release
